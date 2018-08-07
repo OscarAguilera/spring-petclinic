@@ -46,7 +46,6 @@ def buildParameters = "\n" \
 
 println "Build Parameters : " + buildParameters
 
-slackSend(color: "good", channel: '#navy-alerts', message: "Pipeline started : ${buildParameters}")
 
 pipeline {
 
