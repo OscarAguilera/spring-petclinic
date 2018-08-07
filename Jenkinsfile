@@ -91,7 +91,7 @@ pipeline {
             parallel{
                 stage ('Deploy to Development'){
                     steps {
-                        #input message: 'Do you want to deploy to Development? (Click "Proceed" to continue)'
+                        //input message: 'Do you want to deploy to Development? (Click "Proceed" to continue)'
 
                         echo "Code deploy on Dev environment process started"
 
