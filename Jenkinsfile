@@ -58,7 +58,7 @@ pipeline {
          pollSCM('H/5 * * * *')
     }
 
-    agent { label 'slave' }
+    agent { label 'swarm' }
 
     stages{
         stage('Init'){
@@ -81,7 +81,7 @@ pipeline {
 
                 echo "Building..."
 
-                sh 'mvn clean package || exit 1'
+                sh '/usr/local/src/apache-maven/bin/mvn clean package || exit 1'
 
             }
         }
