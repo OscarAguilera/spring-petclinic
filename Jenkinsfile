@@ -88,13 +88,6 @@ pipeline {
             }
         }
        
-       script {
-          if (buildVersion == 'dev') {
-             stage ('Test on dev'){
-                echo "Testing on Dev environment"
-             }
-          }
-       }
         stage ('Deploy'){
             parallel{
                
