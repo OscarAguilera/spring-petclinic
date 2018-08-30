@@ -88,6 +88,7 @@ pipeline {
 
         stage ('Deploy'){
             parallel{
+               
                 stage ('Deploy to Development'){
                     steps {
                         //input message: 'Do you want to deploy to Development? (Click "Proceed" to continue)'
@@ -97,11 +98,9 @@ pipeline {
                     }
                 }
                
-                if (env.BRANCH_NAME == 'dev') {
-                    stage ("Deploy to Test"){
-                        steps {
-                           echo "Code deploy on Test environment process started"
-                        }
+                stage ("Deploy to Test"){
+                    steps {
+                        echo "Code deploy on Test environment process started"
                     }
                 }
             }
