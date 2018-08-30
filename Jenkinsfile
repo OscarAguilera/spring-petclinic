@@ -74,6 +74,7 @@ pipeline {
            }
         }
 
+if(env.BRANCH_NAME == 'master'){
         stage('Build'){
 
             steps {
@@ -84,6 +85,7 @@ pipeline {
 
             }
         }
+}
 
         stage ('Deploy'){
             parallel{
