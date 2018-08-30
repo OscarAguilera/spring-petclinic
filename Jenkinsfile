@@ -67,12 +67,13 @@ pipeline {
             }
         }
        
-        if (env.BRANCH_NAME == 'dev') {
-            stage('Sonarqube') {
-               steps {
-                  echo "Execute sonarqube commands"
-               }
-            }
+        
+        stage('Sonarqube') {
+           if (env.BRANCH_NAME == 'dev') {
+              steps {
+                 echo "Execute sonarqube commands"
+              }
+           }
         }
 
         stage('Build'){
