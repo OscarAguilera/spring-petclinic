@@ -66,12 +66,12 @@ pipeline {
                 echo "Start CI pipeline for branch: $GIT_BRANCH"
             }
         }
-
-        stage('Sonarqube') {
-
-            steps {
-                echo "Execute sonarqube commands"
-
+       
+        if (env.BRANCH_NAME == 'dev') {
+            stage('Sonarqube') {
+               steps {
+                  echo "Execute sonarqube commands"
+               }
             }
         }
 
@@ -96,10 +96,12 @@ pipeline {
 
                     }
                 }
-
-                stage ("Deploy to Test"){
-                    steps {
-                        echo "Code deploy on Test environment process started"
+               
+                if (env.BRANCH_NAME == 'dev') {
+                    stage ("Deploy to Test"){
+                        steps {
+                           echo "Code deploy on Test environment process started"
+                        }
                     }
                 }
             }
