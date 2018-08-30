@@ -79,14 +79,22 @@ pipeline {
                script {
                   if (buildVersion == 'dev') {
                      echo "Building DEV..." 
+                     sh '/usr/local/src/apache-maven/bin/mvn clean package || exit 1'
+                     
                   } else {
-                     echo "Building ${buildVersion} ..." 
+                     echo "Skipping ${buildVersion} ..." 
                   }
                }
-                sh '/usr/local/src/apache-maven/bin/mvn clean package || exit 1'
             }
         }
-
+       
+       script {
+          if (buildVersion == 'dev') {
+             stage ('Test on dev'){
+                echo "Testing on Dev environment"
+             }
+          }
+       }
         stage ('Deploy'){
             parallel{
                
