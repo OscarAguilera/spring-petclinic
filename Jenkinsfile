@@ -69,10 +69,8 @@ pipeline {
        
         
         stage('Sonarqube') {
-           if (env.BRANCH_NAME == 'dev') {
-              steps {
-                 echo "Execute sonarqube commands"
-              }
+           steps {
+              echo "Execute sonarqube commands"
            }
         }
 
