@@ -74,7 +74,7 @@ pipeline {
            }
         }
 
-if(env.BRANCH_NAME == 'master'){
+if (buildVersion == 'master') {
         stage('Build'){
 
             steps {
