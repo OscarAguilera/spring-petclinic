@@ -74,18 +74,18 @@ pipeline {
            }
         }
 
-if (buildVersion == 'master') {
         stage('Build'){
-
             steps {
-
-                echo "Building..."
-
+               script ```
+               if (buildVersion == 'dev') {
+                  echo "Building DEV..." 
+               } else {
+                  echo "Building ${buildVersion} ..." 
+               }
+               ```
                 sh '/usr/local/src/apache-maven/bin/mvn clean package || exit 1'
-
             }
         }
-}
 
         stage ('Deploy'){
             parallel{
